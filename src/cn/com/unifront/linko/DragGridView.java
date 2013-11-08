@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -35,22 +36,24 @@ public class DragGridView extends GridView {
     private static String IMAGE_ITEMS = "image_items_";
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mLayoutParams;
-    
-    
+    private int mScaledTouchSlop;
 
     public DragGridView(Context context) {
         super(context);
         sp = PreferenceManager.getDefaultSharedPreferences(context);
+        mScaledTouchSlop =ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public DragGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         sp = PreferenceManager.getDefaultSharedPreferences(context);
+        mScaledTouchSlop =ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public DragGridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         sp = PreferenceManager.getDefaultSharedPreferences(context);
+        mScaledTouchSlop =ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override
@@ -67,9 +70,9 @@ public class DragGridView extends GridView {
         mDragPointPositionY = downPositionY - viewGroup.getTop();
         mDragOffsetX = (int) (ev.getRawX() - downPositionX);
         mDragOffsetY = (int) (ev.getRawY() - downPositionY);
-        
-        upScrollBounce = Math.min(downPositionY, getHeight()/4);//向上可以滚动的距离
-        downScrollBounce = Math.max(downPositionY, getHeight()*3/4);
+
+        upScrollBounce = Math.min(downPositionY - mScaledTouchSlop, getHeight() / 4);// distance of scroll up 
+        downScrollBounce = Math.max(downPositionY + mScaledTouchSlop, getHeight() * 3 / 4);//distance of scroll down
 
         Log.d(TAG, "downPositionX:" + downPositionX + "   downPositionY:" + downPositionY);
         Log.d(TAG, "viewGroup.getLeft():" + viewGroup.getLeft() + "   viewGroup.getTop():"
@@ -137,19 +140,19 @@ public class DragGridView extends GridView {
     }
 
     private void onDrag(int movePositionX, int movePositionY) {
-            if(mDragImageView != null){
-            mLayoutParams.alpha = 0.9f;
+        if (mDragImageView != null) {
+            mLayoutParams.alpha = 0.8f;
             mLayoutParams.x = movePositionX - mDragPointPositionX + mDragOffsetX;
             mLayoutParams.y = movePositionY - mDragPointPositionY + mDragOffsetY;
             mWindowManager.updateViewLayout(mDragImageView, mLayoutParams);
-            }
-            int tempPosition = pointToPosition(movePositionX, movePositionY);
-            if(tempPosition != INVALID_POSITION){
-                mDragItemPosition = tempPosition;
-            }
-            if(movePositionY < upScrollBounce || movePositionY > downScrollBounce){
+        }
+        int tempPosition = pointToPosition(movePositionX, movePositionY);
+        if (tempPosition != INVALID_POSITION) {
+            mDragItemPosition = tempPosition;
+        }
+        if (movePositionY < upScrollBounce || movePositionY > downScrollBounce) {
             setSelection(mDragItemPosition);
-            }
+        }
     }
 
     private void onDrop(int upPositionX, int upPositionY) {
@@ -167,16 +170,19 @@ public class DragGridView extends GridView {
         if (mDragItemPosition != mDragSrcItemPosition && mDragSrcItemPosition != -1
                 && mDragItemPosition > -1 && mDragItemPosition < getAdapter().getCount()) {
             GridViewAdapter adapter = (GridViewAdapter) getAdapter();
-            String dragSrcItemName = sp.getString(NAME_ITEMS+mDragSrcItemPosition, "UNKNOW");
-            String dragTargetItemName = sp.getString(NAME_ITEMS+mDragItemPosition, "UNKNOW");
-            //change the name order
-            sp.edit().putString(NAME_ITEMS+mDragItemPosition+"", dragSrcItemName).commit();
-            sp.edit().putString(NAME_ITEMS+mDragSrcItemPosition+"", dragTargetItemName).commit();
-            //change the image order
-            String imageIdStringCurrent = sp.getString(IMAGE_ITEMS+mDragItemPosition, R.drawable.ic_launcher+"");
-            String imageIdStringSrc = sp.getString(IMAGE_ITEMS+mDragSrcItemPosition, R.drawable.ic_launcher+"");
-            sp.edit().putString(IMAGE_ITEMS+mDragItemPosition, imageIdStringSrc).commit();
-            sp.edit().putString(IMAGE_ITEMS+mDragSrcItemPosition, imageIdStringCurrent).commit();
+            String dragSrcItemName = sp.getString(NAME_ITEMS + mDragSrcItemPosition, "UNKNOW");
+            String dragTargetItemName = sp.getString(NAME_ITEMS + mDragItemPosition, "UNKNOW");
+            // change the name order
+            sp.edit().putString(NAME_ITEMS + mDragItemPosition + "", dragSrcItemName).commit();
+            sp.edit().putString(NAME_ITEMS + mDragSrcItemPosition + "", dragTargetItemName)
+                    .commit();
+            // change the image order
+            String imageIdStringCurrent = sp.getString(IMAGE_ITEMS + mDragItemPosition,
+                    R.drawable.ic_launcher + "");
+            String imageIdStringSrc = sp.getString(IMAGE_ITEMS + mDragSrcItemPosition,
+                    R.drawable.ic_launcher + "");
+            sp.edit().putString(IMAGE_ITEMS + mDragItemPosition, imageIdStringSrc).commit();
+            sp.edit().putString(IMAGE_ITEMS + mDragSrcItemPosition, imageIdStringCurrent).commit();
             adapter.notifyDataSetChanged();
         }
     }

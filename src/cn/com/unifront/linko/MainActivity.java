@@ -4,12 +4,16 @@ package cn.com.unifront.linko;
 import java.util.ArrayList;
 
 import cn.com.unifront.adapter.GridViewAdapter;
-import cn.com.unifront.dialog.LinkoFragmentDialog;
+import cn.com.unifront.dialog.EditTitleDialog;
+import cn.com.unifront.dialog.QuitAlertDialog;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,11 +26,14 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
     private GridViewAdapter mAdapter;
     private SharedPreferences sp;
     private Context mContext;
-    private static String IS_FIST_LAUNCH = "is_fist_launch";
+    private static String IS_FIRST_LAUNCH = "is_first_launch";
     private static String NAME_ITEMS = "name_items_";
     private static String IMAGE_ITEMS = "image_items_";
     private ArrayList<String> mNameList = new ArrayList<String>();
     private int[] mImageArray;
+
+    private static final int ALERTDIALOG_NORMAL = 1;
+    private static final int ALERTDIALOG_EDIT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +62,12 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
         String[] names = getResources().getStringArray(R.array.gridview_names);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (!sp.getBoolean(IS_FIST_LAUNCH, false)) { // first launch
-            sp.edit().putBoolean(IS_FIST_LAUNCH, true).commit();
+        if (!sp.getBoolean(IS_FIRST_LAUNCH, false)) { // first launch
+            sp.edit().putBoolean(IS_FIRST_LAUNCH, true).commit();
             for (int i = 0; i < names.length; i++) {
                 mNameList.add(names[i]);
                 sp.edit().putString(NAME_ITEMS + i, names[i]).commit();
-                sp.edit().putString(IMAGE_ITEMS + i, mImageArray[i]+"").commit();
+                sp.edit().putString(IMAGE_ITEMS + i, mImageArray[i] + "").commit();
             }
         }
 
@@ -69,9 +76,8 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     @Override
     public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
-        String pleaseEnterTitleName = mContext.getResources().getString(R.string.enter_item_name);
-        LinkoFragmentDialog dialog = LinkoFragmentDialog.getInstance(pleaseEnterTitleName);
-        dialog.show(MainActivity.this.getFragmentManager(), "ENTER_ITEM_NAME_DIALOG");
+        String titleName = mContext.getResources().getString(R.string.enter_item_name);
+        showDialog(titleName, null, "TAG", ALERTDIALOG_EDIT);
         return true;
     }
 
@@ -85,6 +91,49 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
     }
 
     public void doNegativeClick() {
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        showDialog("确认退出？", "您是否要推出LinkoApp？", "ahha", 1);
+        return true;
+    }
+
+    /**
+     * @param title
+     * @param message
+     * @param tag
+     */
+    void showDialog(String title, String message, String tag, int dialogtype) {
+
+        // DialogFragment.show() will take care of adding the fragment
+        // in a transaction. We also want to remove any currently showing
+        // dialog, so make our own transaction and take care of that here.
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag(tag);
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        // Create and show the dialog.
+        switch (dialogtype) {
+            case ALERTDIALOG_NORMAL: {
+                QuitAlertDialog newFragment = QuitAlertDialog.getInstance(title, message);
+                newFragment.show(ft, tag);
+            }
+                break;
+            case ALERTDIALOG_EDIT: {
+                EditTitleDialog newFragment = EditTitleDialog.getInstance(title);
+                newFragment.show(ft,tag);
+            }
+                break;
+                
+            default:
+                break;
+        }
 
     }
 

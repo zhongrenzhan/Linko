@@ -1,7 +1,6 @@
 
 package cn.com.unifront.adapter;
 
-
 import cn.com.unifront.linko.R;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,6 +18,7 @@ public class GridViewAdapter extends BaseAdapter {
     private static String NAME_ITEMS = "name_items_";
     private static String IMAGE_ITEMS = "image_items_";
     private SharedPreferences sp;
+
     public GridViewAdapter(Context mContext) {
         this.mContext = mContext;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -32,11 +32,14 @@ public class GridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = mInflater.inflate(R.layout.gridview_item, null);
-            ImageView gridViewImage = (ImageView) convertView.findViewById(R.id.gridview_img);
-            TextView gridViewText = (TextView) convertView.findViewById(R.id.gridview_name);
-            gridViewImage.setImageDrawable(mContext.getResources().getDrawable(Integer.parseInt(sp.getString(IMAGE_ITEMS+position, R.drawable.ic_launcher+""))));
-            gridViewText.setText(sp.getString(NAME_ITEMS+position, "UNKNOW"));
+        convertView = mInflater.inflate(R.layout.gridview_item, null);
+        ImageView gridViewImage = (ImageView) convertView.findViewById(R.id.gridview_img);
+        TextView gridViewText = (TextView) convertView.findViewById(R.id.gridview_name);
+        gridViewImage.setImageDrawable(mContext.getResources()
+                .getDrawable(
+                        Integer.parseInt(sp.getString(IMAGE_ITEMS + position,
+                                R.drawable.ic_launcher + ""))));
+        gridViewText.setText(sp.getString(NAME_ITEMS + position, "UNKNOW"));
         return convertView;
     }
 
