@@ -99,10 +99,12 @@ public class LinkoFragmentDialog extends DialogFragment implements OnClickListen
         switch (v.getId()) {
             case R.id.bt_sure:
                 ((MainActivity)getActivity()).doPositiveClick();
+                dismiss();
                 break;
 
             case R.id.bt_cancle:
                 ((MainActivity)getActivity()).doNegativeClick();
+                dismiss();
                 break;
 
             default:
@@ -110,5 +112,13 @@ public class LinkoFragmentDialog extends DialogFragment implements OnClickListen
         }
 
     }
+
+    @Override
+    public void dismiss() {
+        // TODO Auto-generated method stub
+        super.dismiss();
+    }
+    
+    
 
 }

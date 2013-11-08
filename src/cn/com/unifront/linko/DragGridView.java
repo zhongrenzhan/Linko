@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -31,6 +32,7 @@ public class DragGridView extends GridView {
     private int downScrollBounce;
     private SharedPreferences sp;
     private static String NAME_ITEMS = "name_items_";
+    private static String IMAGE_ITEMS = "image_items_";
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mLayoutParams;
     
@@ -80,7 +82,7 @@ public class DragGridView extends GridView {
         viewGroup.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(viewGroup.getDrawingCache());
         startDrag(bitmap, downPositionX, downPositionY);
-        return super.onInterceptTouchEvent(ev);
+        return true;
     }
 
     private void startDrag(Bitmap bitmap, int positionX, int positionY) {
@@ -147,7 +149,6 @@ public class DragGridView extends GridView {
             }
             if(movePositionY < upScrollBounce || movePositionY > downScrollBounce){
             setSelection(mDragItemPosition);
-
             }
     }
 
@@ -166,14 +167,16 @@ public class DragGridView extends GridView {
         if (mDragItemPosition != mDragSrcItemPosition && mDragSrcItemPosition != -1
                 && mDragItemPosition > -1 && mDragItemPosition < getAdapter().getCount()) {
             GridViewAdapter adapter = (GridViewAdapter) getAdapter();
-            String dragSrcItem = (String) adapter.getItem(mDragSrcItemPosition);
-            String dragTargetItem = (String) adapter.getItem(mDragItemPosition);
-            adapter.remove(dragSrcItem);
-            adapter.insert(dragSrcItem, mDragItemPosition);
-            sp.edit().putString(NAME_ITEMS+mDragItemPosition+"", dragSrcItem).commit();
-            adapter.remove(dragTargetItem);
-            adapter.insert(dragTargetItem, mDragSrcItemPosition);
-            sp.edit().putString(NAME_ITEMS+mDragSrcItemPosition+"", dragTargetItem).commit();
+            String dragSrcItemName = sp.getString(NAME_ITEMS+mDragSrcItemPosition, "UNKNOW");
+            String dragTargetItemName = sp.getString(NAME_ITEMS+mDragItemPosition, "UNKNOW");
+            //change the name order
+            sp.edit().putString(NAME_ITEMS+mDragItemPosition+"", dragSrcItemName).commit();
+            sp.edit().putString(NAME_ITEMS+mDragSrcItemPosition+"", dragTargetItemName).commit();
+            //change the image order
+            String imageIdStringCurrent = sp.getString(IMAGE_ITEMS+mDragItemPosition, R.drawable.ic_launcher+"");
+            String imageIdStringSrc = sp.getString(IMAGE_ITEMS+mDragSrcItemPosition, R.drawable.ic_launcher+"");
+            sp.edit().putString(IMAGE_ITEMS+mDragItemPosition, imageIdStringSrc).commit();
+            sp.edit().putString(IMAGE_ITEMS+mDragSrcItemPosition, imageIdStringCurrent).commit();
             adapter.notifyDataSetChanged();
         }
     }

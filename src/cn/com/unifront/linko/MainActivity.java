@@ -24,13 +24,15 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
     private Context mContext;
     private static String IS_FIST_LAUNCH = "is_fist_launch";
     private static String NAME_ITEMS = "name_items_";
+    private static String IMAGE_ITEMS = "image_items_";
     private ArrayList<String> mNameList = new ArrayList<String>();
+    private int[] mImageArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initData();   
+        initData();
         mDragGridView = (DragGridView) findViewById(R.id.drag_gridview);
         mDragGridView.setAdapter(mAdapter);
         mDragGridView.setOnItemLongClickListener(this);
@@ -39,22 +41,30 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     private void initData() {
         mContext = MainActivity.this;
+        mImageArray = new int[] {
+                R.drawable.ic_gridview_financing,
+                R.drawable.ic_gridview_safe,
+                R.drawable.ic_gridview_read,
+                R.drawable.ic_gridview_cloud,
+                R.drawable.ic_gridview_note,
+                R.drawable.ic_gridview_douban,
+                R.drawable.ic_gridview_news,
+                R.drawable.ic_gridview_lottery,
+                R.drawable.ic_gridview_music
+        };
         String[] names = getResources().getStringArray(R.array.gridview_names);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
-        
-        if(!sp.getBoolean(IS_FIST_LAUNCH, false)){ //first launch
+
+        if (!sp.getBoolean(IS_FIST_LAUNCH, false)) { // first launch
             sp.edit().putBoolean(IS_FIST_LAUNCH, true).commit();
             for (int i = 0; i < names.length; i++) {
                 mNameList.add(names[i]);
-                sp.edit().putString(NAME_ITEMS+i, names[i]).commit();//add item names to default .xml
-            }
-        }else{
-            for (int i = 0; i < names.length; i++) {
-                mNameList.add(sp.getString(NAME_ITEMS+i, "UNKNOW"));
+                sp.edit().putString(NAME_ITEMS + i, names[i]).commit();
+                sp.edit().putString(IMAGE_ITEMS + i, mImageArray[i]+"").commit();
             }
         }
-        
-        mAdapter = new GridViewAdapter(this, mNameList);
+
+        mAdapter = new GridViewAdapter(this);
     }
 
     @Override
@@ -67,15 +77,15 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-        Toast.makeText(MainActivity.this, "click:"+position, 0).show();
+        Toast.makeText(MainActivity.this, "click:" + position, 0).show();
     }
 
     public void doPositiveClick() {
-        
+
     }
 
     public void doNegativeClick() {
-        
+
     }
 
 }
