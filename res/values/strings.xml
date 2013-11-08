@@ -4,5 +4,20 @@
     <string name="app_name">Linko</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="gridview_item_name">名字</string>
+    <string-array name="gridview_names">
+        <item >理财</item>
+        <item >安全</item>
+        <item >读书</item>
+        <item >网盘</item>
+        <item >笔记</item>
+        <item >豆瓣</item>
+        <item >新闻</item>
+        <item >彩票</item>
+        <item >音乐</item>
+    </string-array>
+    <string name="enter_item_name">请输入名字</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
 
 </resources>
