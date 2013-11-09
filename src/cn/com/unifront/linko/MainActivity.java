@@ -8,14 +8,19 @@ import cn.com.unifront.dialog.EditTitleDialog;
 import cn.com.unifront.dialog.QuitAlertDialog;
 import cn.com.unifront.financing.RegistActivity;
 import cn.com.unifront.financing.SplashActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -37,6 +42,7 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     private static final int ALERTDIALOG_NORMAL = 1;
     private static final int ALERTDIALOG_EDIT = 2;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,47 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
         mDragGridView.setAdapter(mAdapter);
         mDragGridView.setOnItemLongClickListener(this);
         mDragGridView.setOnItemClickListener(this);
+        createShortCut();
+    }
+
+    private void createShortCut() {
+        if(!isShortCutExist()){
+            //add shortcut name and shortcut icon
+            Intent intent = new Intent();
+            intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+            Parcelable icon = Intent.ShortcutIconResource.fromContext(this, R.drawable.icon);
+            intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+            intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getResources().getString(R.string.shortcut_name));
+
+            //what activity this shorcut can launch
+            Intent i = new Intent();
+            i.setAction(Intent.ACTION_MAIN);
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            ComponentName component = new ComponentName(this, MainActivity.class);
+            i.setComponent(component);
+            intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, i);
+            sendBroadcast(intent);
+        }
+
+    }
+
+    private boolean isShortCutExist(){
+        boolean isExist = false;
+        int version = android.os.Build.VERSION.SDK_INT;;
+        Uri uri = null;
+        Log.i(TAG, ""+version);
+
+        uri = Uri.parse("content://com.android.launcher2.settings/favorites");
+        String selection = " title = ?";
+        String[] selectionArgs = new String[]{getResources().getString(R.string.shortcut_name)};
+        Cursor c = getContentResolver().query(uri, null, selection, selectionArgs, null);
+        if(c != null){
+            if(c.getCount() > 0){
+                isExist = true;
+            }
+        }
+        c.close();
+        return isExist;
     }
 
     private void initData() {

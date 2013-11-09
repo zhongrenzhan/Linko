@@ -95,7 +95,8 @@ public class SplashActivity extends Activity {
 		mFinancingSplas.setAnimation(aa);
 
 		dbInitTask task = new dbInitTask();
-		new Thread(task).start();// 开启子线程去初始化数据库和延时跳转页面
+		// starting one thread for init the database and delay to display financing MainActivity
+		new Thread(task).start();
 		//createShortCut();
 	}
 	

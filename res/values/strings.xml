@@ -79,6 +79,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="gridview_item_name">名字</string>
+    <string name="shortcut_name">Linko</string>
     <string-array name="gridview_names">
         <item >理财</item>
         <item >安全</item>
