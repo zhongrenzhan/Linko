@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:id="@+id/tabhost"这里和直接继承TabActivity不同 -->
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabhost1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_setup_set"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true" />
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/ll_incom_chart1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <com.zgy.piechartview.PieChartView
+                    android:id="@+id/parbar_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dip"
+                    android:layout_marginTop="5dip" />
+
+                <TextView
+                    android:id="@+id/text_item_info1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dip"
+                    android:background="@drawable/box"
+                    android:textColor="#000000"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_incom_chart2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <com.zgy.piechartview.PieChartView
+                    android:id="@+id/parbar_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dip"
+                    android:layout_marginTop="5dip" />
+
+                <TextView
+                    android:id="@+id/text_item_info2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dip"
+                    android:background="@drawable/box"
+                    android:textColor="#000000"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_incom_chart3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <com.zgy.piechartview.PieChartView
+                    android:id="@+id/parbar_view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dip"
+                    android:layout_marginTop="5dip" />
+
+                <TextView
+                    android:id="@+id/text_item_info3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dip"
+                    android:background="@drawable/box"
+                    android:textColor="#000000"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+</TabHost>

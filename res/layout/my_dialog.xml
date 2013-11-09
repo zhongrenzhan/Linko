@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_dialog_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/id_text_dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center_horizontal"
+            android:text="警告！"
+            android:textColor="@android:color/white"
+            android:textSize="23sp" />
+
+        <TextView
+            android:id="@+id/id_text_warming"
+            android:layout_width="fill_parent"
+            android:layout_height="70dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center_horizontal"
+            android:text="警告警告警告警告警告警告警告警告警告警告警告警告警告警告警告警告警告警告！"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_marginBottom="15dip"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal" >
+"
+
+            <Button
+                android:id="@+id/id_bt_dialog_sure"
+                android:layout_width="80dip"
+                android:layout_height="35dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_cancle"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/id_bt_dialog_cancle"
+                android:layout_width="80dip"
+                android:layout_height="35dip"
+                android:layout_marginLeft="30dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_sure"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

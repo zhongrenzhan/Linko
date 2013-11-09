@@ -7,6 +7,15 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+    <!-- 创建快捷图标的权限 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +31,108 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.financingActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.RegistActivity"
+            android:label="@string/Reges"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.LoginActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity android:name="cn.com.unifront.financing.FindPswActivity" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.PswManageActivity"
+            android:label="@string/text_psw_manege"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.OneIncome"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.OnePayActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.OneOtherActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.SetupActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.IncomeCategoryListActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AboutZhongshan"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.OpenCloseProtectActivity"
+            android:label="@string/text_psw_protect"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AddIncomeCategoryActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AccountListActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AddAccountActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.CurrencyListActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.PayCategoryListActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AddPayCategoryActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AccountBalanceInfo"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.BackUpActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.AccountSeach"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.PayIncomeInfoList"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.ChartDisplay"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.financing.SendEmail"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
     </application>
 

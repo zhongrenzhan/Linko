@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:id="@+id/ll_pay_income_list"
+        android:orientation="horizontal" 
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="40dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_list_type"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dip"
+            android:text="收入"
+            android:textColor="#000000" />
+        <TextView
+            android:layout_width="65dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_list_amount"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dip"
+            android:text="2300"
+            android:textColor="#FF0000" />
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_list_date"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dip"
+            android:text="2013-04-04"
+            android:textColor="#000000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_list_account"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dip"
+            android:text="账户"
+            android:textColor="#000000" />
+    </LinearLayout>
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:color/darker_gray" />
+
+</LinearLayout>

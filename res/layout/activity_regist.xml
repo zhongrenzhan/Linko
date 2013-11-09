@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_title_regist"
+            android:textColor="#ffffff"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="8dip"
+                android:text="@string/text_regist_info"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:src="@drawable/bg_login_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginTop="5dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dip"
+                        android:text="@string/text_enter_psw"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_regist_pwd"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dip"
+                        android:background="@drawable/login_input"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginTop="5dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dip"
+                        android:text="@string/text_enter_again"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_regist_conf"
+                        android:layout_width="200dip"
+                       android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dip"
+                        android:background="@drawable/login_input"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="8dip"
+                    android:text="@string/text_enter_question_info"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:src="@drawable/bg_login_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginTop="10dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dip"
+                        android:text="@string/text_question"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_regest_question"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dip"
+                        android:background="@drawable/login_input" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginTop="10dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dip"
+                        android:text="@string/text_answer"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/et_regest_answer"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dip"
+                        android:background="@drawable/login_input" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/bt_regest_sure"
+                        android:layout_width="90dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dip"
+                        android:background="@drawable/btn_style"
+                        android:text="@string/text_sure"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/bt_regest_cancle"
+                        android:layout_width="90dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dip"
+                        android:background="@drawable/btn_style"
+                        android:text="@string/text_cancle"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

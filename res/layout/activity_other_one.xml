@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/about_bg"
+    android:orientation="vertical" >
+
+    <!-- titlebar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_oneother_other"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <!-- 收入金额 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="58dip"
+            android:layout_height="58dip"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/ic_grid_add_catergory" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/box" >
+
+            <EditText
+                android:id="@+id/et_oneother_entermoney"
+                android:layout_width="match_parent"
+                android:layout_height="58dip"
+                android:background="@null"
+                android:gravity="center_horizontal|center_vertical"
+                android:inputType="numberDecimal"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:text="0.0"
+                android:textColor="#008000"
+                android:textSize="40sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 详细列表 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1"
+        android:background="@drawable/box"
+        android:orientation="vertical" >
+
+        <!-- 第一行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_payone_type"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_oneother_entertype"
+                android:layout_width="145dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入记账类别"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#008000"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/bt_oneother_recordtype"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_oneincome_choose"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        <!-- 第二行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_onepay_whataccount"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+               android:id="@+id/tv_oneother_choose_account"
+                android:layout_width="145dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/text_onincom_myaccount"
+                android:textColor="#008000"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/bt_oneother_chooseacount"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_oneincome_choose"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+
+        <!-- 第三行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_oneincome_remarktime"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_oneother_entertime"
+                android:layout_width="145dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:text="@string/text_oneincome_selecttime"
+                android:textColor="#008000"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/bt_oneother_datepicker"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_oneincome_choose"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        <!-- 备注 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/text_oneincome_remark"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/box" >
+
+            <EditText
+                android:id="@+id/et_oneother_remark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="top|left"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginBottom="5dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+             android:id="@+id/bt_oneother_ture"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+           android:background="@drawable/btn_style"
+            android:text="@string/text_sure" />
+
+        <Button
+            android:id="@+id/bt_oneother_cancle"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="60dip"
+            android:background="@drawable/btn_style"
+            android:text="@string/text_cancle" />
+    </LinearLayout>
+
+</LinearLayout>

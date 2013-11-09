@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dip"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" 
+        android:padding="15dip">
+
+        <Button
+            android:id="@+id/bt_reset_psw"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style"
+            android:text="@string/text_reset" />
+
+        <Button
+            android:id="@+id/bt_clear_psw"
+            android:layout_marginLeft="10dip"
+           android:layout_width="70dip"
+            android:background="@drawable/btn_style"
+            android:layout_height="wrap_content"
+            android:text="@string/text_clear_psw" />
+
+        <Button
+            android:id="@+id/bt_cancle"
+            android:layout_marginLeft="10dip"
+            android:layout_width="70dip"
+            android:background="@drawable/btn_style"
+            android:layout_height="wrap_content"
+            android:text="@string/text_back" />
+    </LinearLayout>
+
+</LinearLayout>

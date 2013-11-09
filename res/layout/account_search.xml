@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_account_search"
+            android:textColor="#ffffff"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:layout_marginTop="5dip"
+        android:text="@string/search_condition"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/box"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/pay_income_type"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_search_pay_income_type"
+                android:layout_width="wrap_content"
+                android:layout_height="30dip"
+                android:checkedButton="@+id/rb_search_pay"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/rb_search_pay"
+                    android:layout_width="wrap_content"
+                    android:text="支出"
+                    android:textColor="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/rb_search_income"
+                    android:text="收入"
+                    android:textColor="@android:color/black" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical|center_horizontal"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/text_search_accunt_choose"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner_search_choose_account"
+                android:layout_width="150dip"
+                android:layout_height="38dip"
+                android:prompt="@string/text_search_please_choose_account" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/start_time"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_search_start_time"
+                android:layout_width="150dip"
+                android:layout_height="30dip"
+                android:background="@drawable/login_input"
+                android:drawableRight="@drawable/date_select_img"
+                android:focusable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/end_time"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_search_end_time"
+                android:layout_width="150dip"
+                android:layout_height="30dip"
+                android:background="@drawable/login_input"
+                android:drawableRight="@drawable/date_select_img"
+                android:focusable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/minimum_amount"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_search_minimum_amount"
+                android:layout_width="150dip"
+                android:layout_height="30dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/maximum_amount"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_search_maximum_amount"
+                android:layout_width="150dip"
+                android:layout_height="30dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/ll_search_foot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@drawable/ic_boot"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/bt_search_search"
+                    android:layout_width="80dip"
+                    android:layout_height="35dip"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/btn_style"
+                    android:drawableLeft="@drawable/search"
+                    android:text="@string/text_search"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/bt_search_back"
+                    android:layout_width="80dip"
+                    android:layout_height="35dip"
+                    android:layout_marginLeft="20dip"
+                    android:background="@drawable/btn_style"
+                    android:text="@string/text_back"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

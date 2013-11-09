@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import cn.com.unifront.adapter.GridViewAdapter;
 import cn.com.unifront.dialog.EditTitleDialog;
 import cn.com.unifront.dialog.QuitAlertDialog;
+import cn.com.unifront.financing.RegistActivity;
+import cn.com.unifront.financing.SplashActivity;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -77,13 +80,21 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
     @Override
     public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
         String titleName = mContext.getResources().getString(R.string.enter_item_name);
-        showDialog(titleName, null, "TAG", ALERTDIALOG_EDIT);
+        showDialog(titleName, null, "CHAGE_ITEM_NAME_DIALOG", ALERTDIALOG_EDIT);
         return true;
     }
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-        Toast.makeText(MainActivity.this, "click:" + position, 0).show();
+        switch (position) {
+            case 0:
+                Intent intent = new Intent(MainActivity.this,SplashActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void doPositiveClick() {
@@ -96,8 +107,9 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        showDialog("确认退出？", "您是否要推出LinkoApp？", "ahha", 1);
+        String quitString = getResources().getString(R.string.confirm_quit_title);
+        String warmMessage = getResources().getString(R.string.confirm_quit_message);
+        showDialog(quitString, warmMessage, "QUIT_DIALOG", ALERTDIALOG_NORMAL);
         return true;
     }
 
@@ -127,10 +139,10 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
                 break;
             case ALERTDIALOG_EDIT: {
                 EditTitleDialog newFragment = EditTitleDialog.getInstance(title);
-                newFragment.show(ft,tag);
+                newFragment.show(ft, tag);
             }
                 break;
-                
+
             default:
                 break;
         }

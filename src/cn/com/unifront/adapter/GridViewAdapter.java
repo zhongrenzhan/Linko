@@ -1,7 +1,6 @@
 
 package cn.com.unifront.adapter;
 
-import cn.com.unifront.linko.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cn.com.unifront.linko.R;
 
 public class GridViewAdapter extends BaseAdapter {
     private Context mContext;

@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal" >
+
+        <ViewFlipper
+            android:id="@+id/flipper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:flipInterval="7000" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:text="手上的理财专家"
+                android:textColor="#ffffff"
+                android:textSize="23sp" />
+        </ViewFlipper>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_main_background"
+        android:orientation="vertical" >
+
+        <GridView
+            android:id="@+id/gv_01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="20dip"
+            android:numColumns="3"
+            
+            android:verticalSpacing="30dip" >
+        </GridView>
+    
+    </LinearLayout>
+
+</LinearLayout>

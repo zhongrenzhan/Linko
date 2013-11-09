@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <!-- titlebar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="比重统计"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dip"
+        android:layout_weight="1"
+        android:background="@drawable/ic_background_box"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="10dip"
+            android:background="@android:color/darker_gray" />
+
+        <!-- 第一行 -->
+
+        <LinearLayout
+            android:id="@+id/ll_set_category"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_income" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="收入类型管理"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 第二行 -->
+
+        <LinearLayout
+            android:id="@+id/ll_setup_payoutcategory"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_payout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="支出类型管理"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 第三行 -->
+
+        <LinearLayout
+            android:id="@+id/ll_setup_account"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_account" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="账户类型管理"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="25dip"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_psw_manage"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_key" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="密码保护"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/iv_lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dip"
+                    android:layout_marginLeft="70dip"
+                    android:src="@drawable/ic_select_on"
+                     />
+
+                <ImageView
+                    android:id="@+id/iv_unlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dip"
+                    android:layout_marginLeft="70dip"
+                    android:src="@drawable/ic_select_not"
+                    android:visibility="gone"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="记账提醒时间"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="25dip"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_about_author"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_about" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="关于Linko记账"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ll_send_email"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_about" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="意见反馈"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:src="@drawable/setup_help" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="使用帮助说明"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/fast_forward" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_category_addone"
+            android:textColor="#ffffff"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/box"
+        android:orientation="vertical" >
+
+        <!-- 第一行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支出类型:"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_addcategory_entercategory"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#008000"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        <!-- 第二行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_onincom_whataccount"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_addcategory_choose_account"
+                android:layout_width="140dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/text_onincom_myaccount"
+                android:textColor="#008000"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/bt_addcategory_chooseacount"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_oneincome_choose"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+
+        <!-- 第三行 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/text_oneincome_remark"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/login_input" >
+
+            <EditText
+                android:id="@+id/et_addcategory_remark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:gravity="top|left"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/ic_boot"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bt_categorylist_add"
+                android:layout_width="70dip"
+                android:layout_height="35dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_add" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

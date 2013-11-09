@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_account_addone"
+            android:textColor="#ffffff"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/box"
+        android:orientation="vertical" >
+
+        <!-- 第一行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账户名称:"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_addaccount_enteraccount"
+                android:layout_width="185dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#008000"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        <!-- 第二行 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账户金额:"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_addaccount_enterbalance"
+                android:layout_width="185dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#008000"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- ViewLine -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_currency"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_addcurrence_choose_currence"
+                android:layout_width="125dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/text_choose_currence"
+                android:textColor="#008000"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/bt_addcurrence_choosecurrence"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_oneincome_choose"
+                android:textSize="10sp" />
+        </LinearLayout>
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预警金额:"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_addaccount_warm"
+                android:layout_width="185dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:background="@drawable/login_input"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#008000"
+                android:textColorHint="#008000"
+                android:textSize="15sp" />
+        </LinearLayout>
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/darker_gray" />
+        
+
+        <!-- 第三行 -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/ic_boot"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bt_account_add"
+                android:layout_width="70dip"
+                android:layout_height="35dip"
+                android:background="@drawable/btn_style"
+                android:text="@string/text_add" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

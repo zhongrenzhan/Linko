@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/ic_titlebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/text_account_search"
+            android:textColor="#ffffff"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/ic_background_box"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_backup_to_sd"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:src="@drawable/backup" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:text="备份数据到SD卡"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_inport_to_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:src="@drawable/input" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:text="从SD卡还原数据"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_export_to_excel"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" 
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="33dip"
+                android:layout_height="40dip"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dip"
+                android:src="@drawable/export" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:text="导出数据（EXCEL）"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
