@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import cn.com.unifront.linko.LinkoApplication;
 import cn.com.unifront.linko.R;
 
 public class SetupActivity extends Activity implements OnClickListener {
@@ -25,14 +26,14 @@ public class SetupActivity extends Activity implements OnClickListener {
 	private SharedPreferences sp;
 	private ImageView iv_unlock;
 	private ImageView iv_lock;
-	private String state;
+	private boolean state;
 	private Handler handler = new Handler() {
 
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			// 重新更新显示锁的图标
-			state = sp.getString("protect_state", "");
+			state = sp.getBoolean("PROTECT_STATE", false);
 			viewOfLock();
 		}
 
@@ -42,6 +43,8 @@ public class SetupActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LinkoApplication app = (LinkoApplication) getApplication();
+        sp = app.getDefaultSP();
 		setContentView(R.layout.activity_setup);
 		findView();
 		setItemonClickListener();
@@ -72,21 +75,19 @@ public class SetupActivity extends Activity implements OnClickListener {
 		ll_setup_account = (LinearLayout) this
 				.findViewById(R.id.ll_setup_account);
 
-		// 获取配置文件中"protect_state"的值
-		sp = getSharedPreferences("config", Context.MODE_PRIVATE);
-		state = sp.getString("protect_state", "");
+		// 获取配置文件中"PROTECT_STATE"的值
+		state = sp.getBoolean("PROTECT_STATE", false);
 		// 显示锁的图标
 		viewOfLock();
 	}
 
 	/**
-	 * 显示锁的图标,依据配置文件中"protect_state"的值来显示对应的图标
+	 * 显示锁的图标,依据配置文件中"PROTECT_STATE"的值来显示对应的图标
 	 */
 	private void viewOfLock() {
-		if ("1".equals(state)) {
+		if (state) {
 			iv_lock.setVisibility(View.VISIBLE);
 			iv_unlock.setVisibility(View.GONE);
-
 		} else {
 			iv_unlock.setVisibility(View.VISIBLE);
 			iv_lock.setVisibility(View.GONE);
@@ -110,14 +111,10 @@ public class SetupActivity extends Activity implements OnClickListener {
 		}else if (v==ll_send_email){
 			loadSendEmailActivity();
 		}else if (v==iv_lock){
-			Editor editor = sp.edit();
-			editor.putString("protect_state", "0");// 写1到配置文件
-			editor.commit();
+		    sp.edit().putBoolean("PROTECT_STATE", false).commit();
 			handler.sendEmptyMessage(0);
 		}else if (v==iv_unlock){
-			Editor editor = sp.edit();
-			editor.putString("protect_state", "1");// 写1到配置文件
-			editor.commit();
+		    sp.edit().putBoolean("PROTECT_STATE", true).commit();
 			handler.sendEmptyMessage(0);
 		}
 	}

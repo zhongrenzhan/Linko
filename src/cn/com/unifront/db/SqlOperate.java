@@ -42,7 +42,7 @@ public class SqlOperate {
 	/**
 	 * 初始化数据库的函数
 	 */
-	public void initdb() {
+	public void initDb() {
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 
 		if (db.isOpen()) {

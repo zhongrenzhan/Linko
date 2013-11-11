@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import cn.com.unifront.linko.LinkoApplication;
 import cn.com.unifront.linko.R;
 
 public class PswManageActivity extends Activity implements OnClickListener {
@@ -22,6 +23,8 @@ public class PswManageActivity extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_psw_manage);
+		LinkoApplication app = (LinkoApplication) getApplication();
+        sp = app.getDefaultSP();
 		findView();
 		registerListener();
 
@@ -44,8 +47,6 @@ public class PswManageActivity extends Activity implements OnClickListener {
 		bt_reset_psw = (Button) this.findViewById(R.id.bt_reset_psw);
 		bt_clear_psw = (Button) this.findViewById(R.id.bt_clear_psw);
 		bt_cancle = (Button) this.findViewById(R.id.bt_cancle);
-		sp = getSharedPreferences("config", Context.MODE_PRIVATE);
-
 	}
 
 	/**
@@ -59,9 +60,7 @@ public class PswManageActivity extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.bt_clear_psw:
-			Editor edit = sp.edit();
-			edit.putString("regested", "");
-			edit.commit();
+			sp.edit().putString("USER_PSW", "").commit();
 			Toast.makeText(getApplicationContext(), "密码已经清空！",
 					Toast.LENGTH_LONG).show();
 			break;

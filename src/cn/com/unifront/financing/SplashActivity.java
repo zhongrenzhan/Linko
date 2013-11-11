@@ -17,76 +17,42 @@ import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.widget.RelativeLayout;
 import cn.com.unifront.db.SqlOperate;
+import cn.com.unifront.linko.LinkoApplication;
 import cn.com.unifront.linko.R;
 
 public class SplashActivity extends Activity {
 	private RelativeLayout mFinancingSplas;
 	private SharedPreferences sp;
+	private static final String TAG = "SplashActivity";
 	private Handler handler = new Handler() {
-
-        private String tag = "防护状态";
 
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-			
-			sp = getSharedPreferences("config", Context.MODE_PRIVATE);
-			if (getRegestState()) {// 判断是否已经注册过
-				if (getProtectState()) {// 判断是否开启密码防护，如果开启则进入登陆界面
-					Intent intent = new Intent(SplashActivity.this,
-							LoginActivity.class);
+            Log.i(TAG, "RegestState:"+getRegestState()+"=== ProtectState:"+getProtectState());
+			if (getRegestState()) {//user had regested
+				if (getProtectState()) {
+					Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
 					startActivity(intent);
 					finish();
-				} else { // 判断是否开启密码防护，如果没开启则进入主界面
-					Intent intent = new Intent(SplashActivity.this,
-							MainActivity.class);
+				} else {
+					Intent intent = new Intent(SplashActivity.this,MainActivity.class);
 					startActivity(intent);
 					finish();
 				}
-
-			} else {// 如果没有进行注册过，则进入注册页面
-				Intent intent = new Intent(SplashActivity.this,
-						RegistActivity.class);
+			} else {
+				Intent intent = new Intent(SplashActivity.this,RegistActivity.class);
 				startActivity(intent);
 				finish();
 			}
 		}
-
-		/**
-		 * 获取密码防护的状态
-		 * 
-		 */
-		private boolean getProtectState() {
-			String state = sp.getString("protect_state", "");
-			Log.i(tag, "" + state);
-			if ("1".equals(state)) {
-				return true;
-			} else {
-				return false;
-			}
-
-		}
-
-		/**
-		 * 获取是否进行过注册
-		 * 
-		 */
-		private boolean getRegestState() {
-			String state = sp.getString("regested", "");
-
-			if (state != "") {
-				return true;
-			} else {
-				return false;
-			}
-		}
 	};
-	private String tag="版本：";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		sp = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+		LinkoApplication app = (LinkoApplication) getApplication();
+		sp = app.getDefaultSP();
 		setContentView(R.layout.activity_financing_splash);
 		mFinancingSplas = (RelativeLayout) this.findViewById(R.id.financing_splash);
 
@@ -94,97 +60,38 @@ public class SplashActivity extends Activity {
 		aa.setDuration(2000);
 		mFinancingSplas.setAnimation(aa);
 
-		dbInitTask task = new dbInitTask();
+		DbInitTask task = new DbInitTask();
 		// starting one thread for init the database and delay to display financing MainActivity
 		new Thread(task).start();
-		//createShortCut();
 	}
-	
-private void createShortCut() {
-		
-		if(!isExist()){
-			Intent intent = new Intent();
-    		//指定动作名称
-    		intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-    		//指定快捷方式的图标
-    		Parcelable icon = Intent.ShortcutIconResource.fromContext(this, R.drawable.icon);
-    		intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
-    		//指定快捷方式的名称
-    		intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "家庭理财");
-    		
-    		//指定快捷图标激活哪个activity
-    		Intent i = new Intent();
-    		i.setAction(Intent.ACTION_MAIN);
-    		i.addCategory(Intent.CATEGORY_LAUNCHER);
-    		ComponentName component = new ComponentName(this, SplashActivity.class);
-    		i.setComponent(component);
-    		intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, i);
-    		sendBroadcast(intent);
-		}
-		
-	}
-
-	private boolean isExist(){
-    	boolean isExist = false;
-    	int version = getSdkVersion();
-    	Uri uri = null;
-    	Log.i(tag, ""+version);
-//    	if(version < 2.0){
-//    		
-//    	}else{
-//    		uri = Uri.parse("content://com.android.launcher2.settings/favorites");
-//    	}
-    	uri = Uri.parse("content://com.android.launcher.settings/favorites");
-    	String selection = " title = ?";
-    	String[] selectionArgs = new String[]{"家庭理财"};
-    	Cursor c = getContentResolver().query(uri, null, selection, selectionArgs, null);
-    	if(c.getCount() > 0){
-    		isExist = true;
-    	}
-    	c.close();
-    	return isExist;
-    	
-    }
-
-	/**
-     * 得到当前系统sdk版本
-     */
-    private int getSdkVersion(){
-    	return android.os.Build.VERSION.SDK_INT;
-    }
-    
-    
-	private class dbInitTask implements Runnable {
+   
+	private class DbInitTask implements Runnable {
 
 		@Override
 		public void run() {
 			SqlOperate operate = new SqlOperate(SplashActivity.this);
-
-			sp = getSharedPreferences("config", Context.MODE_APPEND);
-			String initstate = sp.getString("initialized", "3");
-			if ("1".equals(initstate)) {// 数据库已经初始化过
-				try {
-					Thread.sleep(3000);
-					handler.sendEmptyMessage(0);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			} else {// 数据库没有初始化过，则进行初始化
-
-				operate.initdb();
-				Editor editor = sp.edit();
-				editor.putString("initialized", "1");
-				editor.commit();
-
-				try {
-					Thread.sleep(3000);
-					handler.sendEmptyMessage(0);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+			Boolean isInitstate = sp.getBoolean("DB_INITIALIZED", false);
+			if (!isInitstate) {
+				operate.initDb();
+				sp.edit().putBoolean("DB_INITIALIZED", true).commit();
 			}
-
+			//delay to send message for show MainActivity
+			try {
+                Thread.sleep(3000);
+                handler.sendEmptyMessage(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 		}
 	}
+	
+	private boolean getProtectState() {
+        return sp.getBoolean("PROTECT_STATE", false);
+    }
+
+    private boolean getRegestState() {
+        return sp.getBoolean("REGEST_STATE", false);
+        
+    }
 
 }

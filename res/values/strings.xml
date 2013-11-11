@@ -76,6 +76,10 @@
     <string name="text_email_addres">您的邮箱地址</string>
     <string name="text_send">发送</string>
     <string name="app_name">Linko</string>
+    <string name="warm_enter_right_psw">请输入正确的信息</string>
+    <string name="warm_set_psw_success">设置成功！</string>
+    <string name="warm_psw_disaccord">两次密码一致！</string>
+    <string name="warm_psw_wrong_psw">密码错误！</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="gridview_item_name">名字</string>

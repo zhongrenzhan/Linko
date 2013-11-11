@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.com.unifront.linko.LinkoApplication;
 import cn.com.unifront.linko.R;
 import cn.com.unifront.util.DESPlus;
 
@@ -25,6 +26,8 @@ public class FindPswActivity extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_findpsw);
+		LinkoApplication app = (LinkoApplication) getApplication();
+        sp = app.getDefaultSP();
 		findView();
 		registerListener();
 
@@ -43,7 +46,6 @@ public class FindPswActivity extends Activity implements OnClickListener {
 	 * 获取控件
 	 */
 	private void findView() {
-		sp = getSharedPreferences("config", Context.MODE_PRIVATE);
 		tv_findpwd_qust = (TextView) this.findViewById(R.id.tv_findpwd_qust);
 		bt_back = (Button) this.findViewById(R.id.bt_back);
 		et_findpwd_answer = (EditText) this
@@ -68,7 +70,7 @@ public class FindPswActivity extends Activity implements OnClickListener {
 			if (answer.equals(setanswer)) {				
 				try {
 					DESPlus plus = new DESPlus();
-					String pswdecoded = plus.decrypt((sp.getString("regested", "")));
+					String pswdecoded = plus.decrypt((sp.getString("USER_PSW", "")));
 					tv_showpsw.setText("密码："+pswdecoded);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
