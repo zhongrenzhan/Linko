@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- ====================================== -->
+
+    <header
+        android:background="@android:color/white"
+        android:title="@string/header_category_set" />
+
+    <header
+        android:id="@+id/set_category"
+        android:icon="@drawable/setup_income"
+        android:title="@string/income_settings_title" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="cn.com.unifront.financing.IncomeCategoryListActivity"
+            android:targetPackage="cn.com.unifront.linko" />
+    </header>
+
+    <header
+        android:id="@+id/setup_payoutcategory"
+        android:icon="@drawable/setup_payout"
+        android:title="@string/payoutcategory_settings_title" >
+
+        <intent
+            android:targetClass="cn.com.unifront.financing.PayCategoryListActivity"
+            android:targetPackage="cn.com.unifront.linko" />
+    </header>
+
+    <header
+        android:id="@+id/setup_account"
+        android:icon="@drawable/setup_account"
+        android:title="@string/account_settings_title" >
+
+        <intent
+            android:targetClass="cn.com.unifront.financing.AccountListActivity"
+            android:targetPackage="cn.com.unifront.linko" />
+    </header>
+
+    <!-- ====================================== -->
+
+    <header android:title="@string/header_category_prefer" />
+
+    <header
+        android:id="@+id/psw_protect_state"
+        android:icon="@drawable/setup_about"
+        android:title="@string/psw_protect_state_title" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.multisimsettings.MultiSimSettings"
+            android:targetPackage="com.android.settings" />
+    </header>
+
+    <header
+        android:id="@+id/warm_user_record"
+        android:icon="@drawable/setup_time"
+        android:title="@string/warm_user_record_title" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.multisimsettings.MultiSimSettings"
+            android:targetPackage="com.android.settings" />
+    </header>
+
+    <!-- ====================================== -->
+
+    <header android:title="@string/header_category_other" />
+
+    <header
+        android:id="@+id/about_author"
+        android:icon="@drawable/setup_about"
+        android:title="@string/about_author_title" >
+
+        <intent
+            android:targetClass="cn.com.unifront.financing.AboutZhongshan"
+            android:targetPackage="cn.com.unifront.linko" />
+    </header>
+
+    <header
+        android:id="@+id/send_email"
+        android:icon="@drawable/setup_about"
+        android:title="@string/send_email_settings_title" >
+
+        <intent
+            android:targetClass="cn.com.unifront.financing.SendEmail"
+            android:targetPackage="cn.com.unifront.linko" />
+    </header>
+
+    <header
+        android:id="@+id/help_explanation"
+        android:icon="@drawable/setup_account"
+        android:title="@string/help_explanation_title" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.multisimsettings.MultiSimSettings"
+            android:targetPackage="com.android.settings" />
+    </header>
+
+</preference-headers>

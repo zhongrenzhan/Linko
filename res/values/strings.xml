@@ -84,6 +84,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="gridview_item_name">名字</string>
     <string name="shortcut_name">Linko</string>
+    <string-array name="financing_gridview_names">
+        <item >收入一笔</item>
+        <item >支出一笔</item>
+        <item >记账类别</item>
+        <item >帐目统计</item>
+        <item >统计图表</item>
+        <item >用户管理</item>
+        <item >密码管理</item>
+        <item >数据备份</item>
+        <item >帐目查询</item>
+    </string-array>
     <string-array name="gridview_names">
         <item >理财</item>
         <item >安全</item>
@@ -100,5 +111,17 @@
     <string name="confirm_quit_message">你是否要退出Linko？</string>
     <string name="sure">确定</string>
     <string name="cancle">取消</string>
+    <string name="header_category_set">类别设置</string>
+    <string name="lock_settings_title">密码状态</string>
+    <string name="header_category_prefer">偏好设置</string>
+    <string name="header_category_other">理财相关</string>
+    <string name="income_settings_title">收入类型管理</string>
+    <string name="payoutcategory_settings_title">支出类型管理</string>
+    <string name="account_settings_title">账户类型管理</string>
+    <string name="about_author_title">关于作者</string>
+    <string name="send_email_settings_title">意见反馈</string>
+    <string name="help_explanation_title">帮助说明</string>
+    <string name="psw_protect_state_title">密码保护状态</string>
+    <string name="warm_user_record_title">记账时间提醒</string>
 
 </resources>

@@ -15,8 +15,7 @@ public class FinancingGridViewAdapter extends BaseAdapter {
 	private ImageView iv_gridview_img;
 	private TextView tv_gridview_text;
 	private LayoutInflater inflater;
-	private static String names[] = { "收入一笔", "支出一笔", "记账类别", "账目统计", "统计饼图",
-			"用户管理", "密码管理", "数据备份", "账目查询", };
+	private String[] names;
 	private static int icon[] = { R.drawable.ic_grid_income_one, R.drawable.ic_grid_payout_one,
 			R.drawable.ic_grid_add_catergory, R.drawable.ic_grid_account_info,
 			R.drawable.ic_grid_chart_show, R.drawable.ic_grid_set_tool,
@@ -26,6 +25,7 @@ public class FinancingGridViewAdapter extends BaseAdapter {
 	public FinancingGridViewAdapter(Context context) {
 		this.context = context;
 		inflater = LayoutInflater.from(context);
+		names = context.getResources().getStringArray(R.array.financing_gridview_names);
 	}
 
 	@Override

@@ -3,15 +3,6 @@ package cn.com.unifront.linko;
 
 import java.util.ArrayList;
 
-import cn.com.unifront.adapter.GridViewAdapter;
-import cn.com.unifront.dialog.EditTitleDialog;
-import cn.com.unifront.dialog.QuitAlertDialog;
-import cn.com.unifront.financing.RegistActivity;
-import cn.com.unifront.financing.SplashActivity;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -20,14 +11,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Toast;
+import cn.com.unifront.adapter.GridViewAdapter;
+import cn.com.unifront.dialog.EditTitleDialog;
+import cn.com.unifront.dialog.QuitAlertDialog;
+import cn.com.unifront.financing.SplashActivity;
 
 public class MainActivity extends Activity implements OnItemLongClickListener, OnItemClickListener {
     private DragGridView mDragGridView;
@@ -82,7 +79,9 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
         int version = android.os.Build.VERSION.SDK_INT;;
         Uri uri = null;
         Log.i(TAG, ""+version);
-
+        if(version < 9){
+            uri = Uri.parse("content://com.android.launcher.settings/favorites");
+        }
         uri = Uri.parse("content://com.android.launcher2.settings/favorites");
         String selection = " title = ?";
         String[] selectionArgs = new String[]{getResources().getString(R.string.shortcut_name)};
@@ -126,8 +125,8 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
 
     @Override
     public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long id) {
-        String titleName = mContext.getResources().getString(R.string.enter_item_name);
-        showDialog(titleName, null, "CHAGE_ITEM_NAME_DIALOG", ALERTDIALOG_EDIT);
+        //String titleName = mContext.getResources().getString(R.string.enter_item_name);
+        //showDialog(titleName, null, "CHAGE_ITEM_NAME_DIALOG", ALERTDIALOG_EDIT);
         return true;
     }
 

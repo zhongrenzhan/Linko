@@ -24,6 +24,7 @@ public class SplashActivity extends Activity {
 	private RelativeLayout mFinancingSplas;
 	private SharedPreferences sp;
 	private static final String TAG = "SplashActivity";
+	private static final int DELAY_TIME = 10;
 	private Handler handler = new Handler() {
 
 		@Override
@@ -77,7 +78,7 @@ public class SplashActivity extends Activity {
 			}
 			//delay to send message for show MainActivity
 			try {
-                Thread.sleep(3000);
+                Thread.sleep(DELAY_TIME);
                 handler.sendEmptyMessage(0);
             } catch (InterruptedException e) {
                 e.printStackTrace();

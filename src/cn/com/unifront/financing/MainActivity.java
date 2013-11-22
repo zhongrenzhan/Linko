@@ -114,7 +114,7 @@ public class MainActivity extends Activity implements OnItemClickListener, andro
 	}
 
 	private void loadSetupActivity() {
-		Intent intent = new Intent(MainActivity.this, SetupActivity.class);
+		Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
 		startActivity(intent);
 		overridePendingTransition(R.anim.translate_right, R.anim.translate_left);
 
