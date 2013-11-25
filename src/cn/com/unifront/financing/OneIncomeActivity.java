@@ -6,6 +6,7 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.com.unifront.db.SqlOperate;
+import cn.com.unifront.domain.PayoutIncome;
 import cn.com.unifront.linko.R;
 
 public class OneIncomeActivity extends Activity implements OnClickListener {
+    private Context context;
     private Button mDatepicker;
     private TextView mTime;
     private EditText mMoney;
@@ -35,10 +38,13 @@ public class OneIncomeActivity extends Activity implements OnClickListener {
     private int initDay;
     private String month;
     private String day;
+    private static final String PAY_INCOME = "pay_income";
+    private PayoutIncome mPayoutIncome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = OneIncomeActivity.this;
         setContentView(R.layout.activity_incom_one);
         findView();
         setDialogDate();
@@ -46,9 +52,6 @@ public class OneIncomeActivity extends Activity implements OnClickListener {
 
     }
 
-    /**
-     * 设置按钮点击事件
-     */
     private void setButtonClickListener() {
         mDatepicker.setOnClickListener(this);
         btTure.setOnClickListener(this);
@@ -64,9 +67,6 @@ public class OneIncomeActivity extends Activity implements OnClickListener {
         initDay = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-    /**
-     * 找到控件初始化
-     */
     private void findView() {
         mMoney = (EditText) this
                 .findViewById(R.id.et_oneincome_entermoney);
@@ -94,45 +94,46 @@ public class OneIncomeActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
 
-        // 选择类别按钮事件处理
             case R.id.bt_oneincome_recordtype:
                 loadCategoryActivity();
                 break;
 
-            // 选择账户名按钮事件处理
             case R.id.bt_oneincome_chooseacount:
                 loadAccountListActivity();
                 break;
 
-            // 选择时间的按钮事件处理
             case R.id.bt_oneincome_datepicker:
                 creatDateDialog();
                 break;
-            // 确定添加按钮事件处理
             case R.id.bt_oneincome_ture:
-                float money = Float.parseFloat(mMoney.getText().toString().trim());
+                mPayoutIncome = new PayoutIncome();
+                double money = Double.parseDouble(mMoney.getText().toString().trim());
                 String type = mType.getText().toString().trim();
                 String account = mAccount.getText().toString();
                 String time = mTime.getText().toString().trim();
                 String remark = etRemark.getText().toString().trim();
-
+                mPayoutIncome.setMoney(money);
+                mPayoutIncome.setType(type);
+                mPayoutIncome.setAccount(account);
+                mPayoutIncome.setTime(time);
+                mPayoutIncome.setRemark(remark);
                 SqlOperate operate = new SqlOperate(this);
 
-                if ("0.0".equals(money) || "请输入记账类别".equals(type)
-                        || "请选择时间".equals(time)) {
-                    Toast.makeText(OneIncomeActivity.this, "请输入完整的信息！！", Toast.LENGTH_SHORT)
+                if ("0.0".equals(money) || context.getString(R.string.enter_type).equals(type)
+                        || context.getString(R.string.text_oneincome_selecttime).equals(time)) {
+                    Toast.makeText(OneIncomeActivity.this, context.getString(R.string.pleass_enter_complete_information), Toast.LENGTH_SHORT)
                             .show();
 
                 } else {
-                    operate.insertPayIncomeDate(0, money, time, account, type, remark);
-                    Toast.makeText(OneIncomeActivity.this, "记账一笔成功！", Toast.LENGTH_LONG)
+                    operate.insert(PAY_INCOME, mPayoutIncome);
+                    Toast.makeText(OneIncomeActivity.this, context.getString(R.string.record_success), Toast.LENGTH_LONG)
                             .show();
                     finish();
                     overridePendingTransition(0, R.anim.translate_left_out);
                 }
                 break;
 
-            case R.id.bt_oneincome_cancle:// 选择取消按钮事件处理
+            case R.id.bt_oneincome_cancle:
                 finish();
                 overridePendingTransition(0, R.anim.translate_left_out);
                 break;

@@ -96,7 +96,7 @@
                 android:layout_weight="0.21"
                 android:background="@null"
                 android:gravity="center_vertical"
-                android:hint="请选择记账类别"
+                android:hint="@string/enter_type"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"

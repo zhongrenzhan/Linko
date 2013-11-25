@@ -3,24 +3,17 @@ package cn.com.unifront.financing;
 
 import java.util.List;
 
-import cn.com.unifront.adapter.FinancingSettingsHeaderAdapter;
-import cn.com.unifront.linko.R;
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.widget.Switch;
-import android.widget.TextView;
+import cn.com.unifront.adapter.FinancingSettingsHeaderAdapter;
+import cn.com.unifront.linko.R;
 
 public class SettingsActivity extends PreferenceActivity {
     private List<Header> myHeader;
-
+    private SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -31,10 +24,8 @@ public class SettingsActivity extends PreferenceActivity {
     @SuppressLint("NewApi")
     @Override
     public void onBuildHeaders(List<Header> target) {
-        // super.setListAdapter(new HeaderAdapter(this, 0, target));
         myHeader = target;
         loadHeadersFromResource(R.layout.financing_settings, target);
-
     }
 
     @Override

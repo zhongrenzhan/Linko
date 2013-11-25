@@ -23,5 +23,4 @@ public class PayIncomeList {
 		this.amount = amount;
 	}
 	
-
 }

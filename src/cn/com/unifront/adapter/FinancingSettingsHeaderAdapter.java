@@ -5,11 +5,15 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.preference.PreferenceActivity.Header;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -22,12 +26,14 @@ public class FinancingSettingsHeaderAdapter extends ArrayAdapter<Header> {
     private static final int HEADER_TYPE_CATEGORY = 2;
     private HeaderViewHolder holder;
     private Context context;
+    private SharedPreferences sp;
 
     public FinancingSettingsHeaderAdapter(Context context, int textViewResourceId,
             List<Header> objects) {
         super(context, textViewResourceId, objects);
         // TODO Auto-generated constructor stub
         this.context = context;
+        sp = PreferenceManager.getDefaultSharedPreferences(context);
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -78,6 +84,16 @@ public class FinancingSettingsHeaderAdapter extends ArrayAdapter<Header> {
                     view = inflater.inflate(R.layout.preference_header_switch_item, null);
                     holder.imageView = (ImageView) view.findViewById(R.id.icon);
                     holder.title = (TextView) view.findViewById(R.id.title);
+                    holder.switch_ = (Switch) view.findViewById(R.id.switchWidget);
+                    holder.switch_.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                            sp.edit().putBoolean("PROTECT_STATE",
+                                    !sp.getBoolean("PROTECT_STATE", false)).commit();
+                        }
+                    });
                     break;
                 case HEADER_TYPE_NORMAL:
                     view = inflater.inflate(R.layout.preference_header_item, null);
@@ -102,6 +118,12 @@ public class FinancingSettingsHeaderAdapter extends ArrayAdapter<Header> {
                 break;
             case HEADER_TYPE_SWITCH:
                 holder.title.setText(header.getTitle(context.getResources()));
+                Boolean protectStat = sp.getBoolean("PROTECT_STATE", false);
+                if (protectStat) {
+                    holder.switch_.setChecked(true);
+                }else{
+                    holder.switch_.setChecked(false);
+                }
                 break;
             case HEADER_TYPE_CATEGORY:
                 holder.title.setText(header.getTitle(context.getResources()));
