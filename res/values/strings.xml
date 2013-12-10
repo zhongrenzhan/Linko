@@ -28,11 +28,11 @@
     <string name="text_reset">重设密码</string>
     <string name="text_clear_psw">清空密码</string>
     <string name="text_oneincome_oneincom">收入一笔</string>
-    <string name="text_oneincome_choose">选择</string>
-    <string name="text_onincom_whataccount">计入账户:</string>
-    <string name="text_onincom_myaccount">请选择账户</string>
-    <string name="text_oneincome_remark">备注:</string>
-    <string name="text_oneincome_remarktime">记账时间:</string>
+    <string name="text_choose">选择</string>
+    <string name="text_whataccount">计入账户:</string>
+    <string name="text_account">请选择账户</string>
+    <string name="text_remark">备注:</string>
+    <string name="text_remarktime">记账时间:</string>
     <string name="text_oneincome_selecttime">请选择时间</string>
     <string name="text_onepay_onepay">支出一笔:</string>
     <string name="text_payone_type">支出类型:</string>
@@ -45,6 +45,21 @@
     <string name="text_about_about_author">关于作者</string>
     <string name="text_about_software">关于Linko理财</string>
     <string name="text_about_softwareinfo">庭理财系统是本人的毕业设计作品本系统是一款简单实用的理财软件，能够满足个人的理财需求，记录日常收支明细，可以进行收支查询和账户资金查询，使用户对自己的财务有一个清晰的认识，便于财务管理。</string>
+    <string name="lisence">"Linko理财是一款完全免费的个人理财软件。功能覆盖记账、固定收支、财务短信、聚合统计、账户管理等实用功能。本着为用户提供方便、实用的个人理财功能而研发，软件所有功能完全免费。
+
+开发者将尽可能的为用户提供方便功能，但因部分极特殊且不可抗拒的情况下，可能对用户造成一定影响，特此声明：
+
+ 一、对于刷机、重置系统没有按步骤及时备份数据，造成用户数据丢失的情况，超级理财不承担任何责任。
+
+ 二、对于SD卡意外损坏、手机丢失等不可抗拒因素所引起的用户数据丢失，超级理财不承担任何责任。
+
+ 三、对于将超级理财安装到SD卡上（系统默认不允许安装到SD卡），造成部分功能不能正常使用，Linko理财不承担任何责任。
+
+ 四、本软件为彩民提供了快捷的购彩入口，购彩过程中由于网络环境等因素引起的问题，本软件不承担任何责任。
+
+ 五、Linko理财提供的汇率查询的结果来自互联网，不对此结果承担任何责任。
+
+ 以上免责声明最终解释权归超级理财软件开发者钟人站所有。"</string>
     <string name="text_title_findpsw">找回密码</string>
     <string name="text_psw_protect">保护设置</string>
     <string name="text_open_protect">开启保护</string>
@@ -72,8 +87,9 @@
     <string name="text_title_income_type">收入类型</string>
     <string name="text_paycategory_list">支出类型</string>
     <string name="text_Feedbackt">意见反馈</string>
-    <string name="text_thank">欢迎您使用Linko理财软件，在使用过程中如果你有好的建议或意见，欢迎给我发邮件。</string>
+    <string name="text_Feedbackt_content">输入您要反馈的内容</string>
     <string name="text_email_content">邮件内容</string>
+    <string name="text_email_address">邮件地址</string>
     <string name="text_email_addres">您的邮箱地址</string>
     <string name="text_send">发送</string>
     <string name="app_name">Linko</string>
@@ -88,6 +104,10 @@
     <string name="enter_type">请输入记账类别</string>
     <string name="pleass_enter_complete_information">请输入完整的信息！！</string>
     <string name="record_success">记录成功！</string>
+    <string name="text_income_type_title">收入类型：</string>
+    <string name="text_pay_type_title">支出类型：</string>
+    <string name="text_email_no_content">您还没有写下建议呢！</string>
+    <string name="text_email_thanks">感谢您的建议！</string>
 
     <string-array name="income_categoryname">
         <item>工资</item>
@@ -175,5 +195,13 @@
     <string name="help_explanation_title">帮助说明</string>
     <string name="psw_protect_state_title">密码保护状态</string>
     <string name="warm_user_record_title">记账时间提醒</string>
+    <string name="text_enter_email">输入您的邮箱</string>
+    <string name="applications_settings_header">应用</string>
+    <string name="manageapplications_settings_title">应用管理</string>
+    <string name="process_manage_title">进程管理</string>
+    <string name="aotu_launch_manage_title">自启动管理</string>
+    <string name="apps_system">系统应用</string>
+    <string name="apps_user">用户应用</string>
+    <string name="disabled">关闭</string>
 
 </resources>

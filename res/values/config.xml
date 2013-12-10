@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email_host">smtp.163.com</string>
+    <string name="sender_email_address">15295953557@163.com</string>
+    <string name="receiver_email_address">472279438@qq.com</string>
+</resources>

@@ -22,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import cn.com.unifront.adapter.GridViewAdapter;
+import cn.com.unifront.autostart.AutoStartMainActivity;
 import cn.com.unifront.dialog.EditTitleDialog;
 import cn.com.unifront.dialog.QuitAlertDialog;
 import cn.com.unifront.financing.SplashActivity;
@@ -90,8 +91,9 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
             if(c.getCount() > 0){
                 isExist = true;
             }
+            c.close();
         }
-        c.close();
+        
         return isExist;
     }
 
@@ -134,13 +136,27 @@ public class MainActivity extends Activity implements OnItemLongClickListener, O
     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
         switch (position) {
             case 0:
-                Intent intent = new Intent(MainActivity.this,SplashActivity.class);
+                //Intent intent = new Intent(MainActivity.this,SplashActivity.class);
+                Intent intent = new Intent(MainActivity.this,ApplicationSettings.class);
+                
                 startActivity(intent);
+                break;
+                
+            case 1:
+                //Intent intent = new Intent(MainActivity.this,SplashActivity.class);
+                loadAutoStart();
+                
                 break;
 
             default:
                 break;
         }
+    }
+
+    private void loadAutoStart() {
+        Intent intent = new Intent(MainActivity.this,AutoStartMainActivity.class);
+        startActivity(intent);
+        
     }
 
     public void doPositiveClick() {

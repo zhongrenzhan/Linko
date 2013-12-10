@@ -141,7 +141,7 @@
                 android:layout_height="30dip"
                 android:layout_marginLeft="10dip"
                 android:background="@drawable/btn_style"
-                android:text="@string/text_oneincome_choose"
+                android:text="@string/text_choose"
                 android:textSize="10sp" />
         </LinearLayout>
         

@@ -55,6 +55,8 @@
             android:name="cn.com.unifront.financing.LoginActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity android:name="cn.com.unifront.linko.ApplicationSettings" >
+        </activity>
         <activity android:name="cn.com.unifront.financing.FindPswActivity" >
         </activity>
         <activity
@@ -63,15 +65,7 @@
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="cn.com.unifront.financing.OneIncomeActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="cn.com.unifront.financing.OnePayActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="cn.com.unifront.financing.OneOtherActivity"
+            android:name="cn.com.unifront.financing.PayIncomeActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
@@ -89,7 +83,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cn.com.unifront.financing.AboutZhongshan"
+            android:name="cn.com.unifront.financing.AboutLinko"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
@@ -149,6 +143,9 @@
             android:name="cn.com.unifront.financing.SettingsActivity"
             android:label="@string/text_setup_set"
             android:theme="@style/perference_set_activity" >
+        </activity>
+        <activity
+            android:name="cn.com.unifront.autostart.AutoStartMainActivity">
         </activity>
     </application>
 

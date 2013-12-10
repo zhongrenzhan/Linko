@@ -26,5 +26,11 @@
         <item name="android:colorBackgroundCacheHint">#00000000</item> <!-- 背景缓存色透明，避免拖动全黑 -->
         <item name="android:windowNoTitle">false</item> <!-- 是否有标题 -->
     </style>
+    
+    <!-- Preference Styles -->
+
+    <style name="Preference">
+        <item name="android:layout">@layout/preference</item>
+    </style>
 
 </resources>
