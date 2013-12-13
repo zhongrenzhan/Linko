@@ -54,19 +54,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAlignedChildIndex="0" >
-            <TextView android:id="@+id/app_disabled"
+            <!--@linyi 20130805  change android:layout_marginTop="-4dip" to android:layout_marginTop="-2dip"-->
+            <TextView android:id="@+id/app_state"
                 android:layout_marginTop="-2dip"
                 android:layout_gravity="center_vertical|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:visibility="gone"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/autostart_state_abled" />
         </LinearLayout>
     </LinearLayout>
     
-    <CheckBox android:id="@+id/app_state"
+    <CheckBox android:id="@+id/app_disabled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dip"

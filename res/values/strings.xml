@@ -198,10 +198,15 @@
     <string name="text_enter_email">输入您的邮箱</string>
     <string name="applications_settings_header">应用</string>
     <string name="manageapplications_settings_title">应用管理</string>
-    <string name="process_manage_title">进程管理</string>
-    <string name="aotu_launch_manage_title">自启动管理</string>
-    <string name="apps_system">系统应用</string>
-    <string name="apps_user">用户应用</string>
-    <string name="disabled">关闭</string>
+    <string name="process_management_title">进程管理</string>
+    <string name="auto_launch_title">自启动应用</string>
+    <string name="user_applications">个人应用</string>
+    <string name="system_applications">系统应用</string>
+    <string name="autostart_user_hint_info">取消勾选可以禁止程序自启动</string>
+    <string name="autostart_system_hint_info">系统应用，不建议禁止</string>
+    <string name="autostart_state_disabled">状态:已禁止</string>
+    <string name="autostart_state_abled">状态:自启动</string>
+    <string name="no_applications">无应用</string>
+    <string name="settings_safetylegal_activity_loading">正在加载。。。</string>
 
 </resources>

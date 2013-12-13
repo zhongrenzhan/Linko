@@ -5,7 +5,7 @@
     android:orientation="vertical" >
     
     <fragment 
-        android:name="cn.com.unifront.autostart.AutoStartApplication"
+        android:name="cn.com.unifront.autostart.AutoStartApplications"
         android:id="@+id/auto_start_application_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

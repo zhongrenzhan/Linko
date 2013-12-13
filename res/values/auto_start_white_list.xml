@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2007 The Android Open Source Project
+** Copyright (c) 2011-2013, The Linux Foundation. All Rights Reserved.
+**
+** Not a Contribution, Apache license notifications and license are retained
+** for attribution purposes only
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<!-- 
+       label                packageName
+       Android 系统          android
+       UnifSystemApp        cn.com.unifront.systemapp
+       系统更新              cn.com.unifront.upgrade
+       装配                 cn.gosomo.evt
+       蓝牙共享              com.android.bluetooth
+       小区广播              com.android.cellbroadcastreceiver
+       联系人                com.android.contacts
+       时钟                 com.android.deskclock
+       电子邮件              com.android.email
+       Exchange 服务        com.android.exchange
+       图库                 com.android.gallery3d
+       Input Devices       com.android.inputdevices
+       Key Chain           com.android.keychain
+       信息                 com.android.mms
+       手机                 com.android.phone
+       搜索应用提供商         com.android.providers.applications
+       日历存储              com.android.providers.calendar
+       联系人存储            com.android.providers.contacts
+       下载管理器            com.android.providers.downloads
+       下载内容              com.android.providers.downloads.ui
+       受 DRM 保护的内容的存储   com.android.providers.drm
+       媒体存储              com.android.providers.media
+       设置存储              com.android.providers.settings
+       电话/信息存储          com.android.providers.telephony
+       User Dictionary      com.android.providers.userdictionary
+       设备信息              com.android.qrd.engineeringmode
+       设置                 com.android.settings
+       UIM 卡应用            com.android.stk
+       系统用户界面           com.android.systemui
+       SIM卡联系人           com.qrd.simcontacts
+       国际漫游设置           com.qualcomm.CTroamingsettings
+       小区广播              com.qualcomm.CellBCSetting
+       Content Adaptive Backlight Settings      com.qualcomm.cabl
+       FastBoot             com.qualcomm.fastboot
+       NoSIMAlert           com.qualcomm.nosimalert
+       com.qualcomm.privinit        com.qualcomm.privinit
+       com.qualcomm.recorder        com.qualcomm.recorder
+       RestoreAirplaneMode          com.qualcomm.restore.airplanemode
+       存储卡管理                     com.qualcomm.storage
+       Wiper App                    com.qualcomm.wiper
+       FM 收音机                     com.quicinc.fmradio
+       天地通                        com.yaloe8077
+       LED手电筒                     qualcomm.android.LEDFlashlight
+-->
+    <string-array name="white_list_package_names">
+        <item>android</item>
+        <item>com.android.phone</item>
+        <item>com.android.providers.contacts</item>
+        <item>cn.com.unifront.upgrade</item>
+    </string-array>
+
+</resources>

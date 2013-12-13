@@ -27,13 +27,13 @@
     <PreferenceScreen
         style="@style/Preference"
         android:fragment="com.android.settings.applications.ManageApplications"
-        android:title="@string/process_manage_title" >
+        android:title="@string/process_management_title" >
     </PreferenceScreen>
 
     <PreferenceScreen
         style="@style/Preference"
         android:fragment="com.android.settings.applications.ManageApplications"
-        android:title="@string/aotu_launch_manage_title" >
+        android:title="@string/auto_launch_title" >
     </PreferenceScreen>
 
 </PreferenceScreen>
